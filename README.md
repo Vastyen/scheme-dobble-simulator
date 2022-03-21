@@ -35,20 +35,20 @@ Features of the game
 * [Dr.Racket 8.2 or highter](https://download.racket-lang.org/)         
 * [Git](https://git-scm.com/downloads)
 
-        Clone the repositorie from https://github.com/Bescri/Programming-Paradigms-I
+        Clone the repositorie from https://github.com/vastien/scheme/
         
         Windows
         
                 $ cd Desktop
                 $ mkdir functionalParadigm
                 $ cd functionalParadigm
-                $ git clone https://github.com/Bescri/Programming-Paradigms-I
+                $ git clone https://github.com/vastien/scheme/
                 
-        Linux
+        Linux and MacOS 
         
                 $ mkdir functionalParadigm
                 $ cd functionalParadigm
-                $ git clone https://github.com/Bescri/Programming-Paradigms-I
+                $ git clone hhttps://github.com/vastien/scheme/
 
         Open the file in the folder with Dr.Racket 
 ## License
