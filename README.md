@@ -5,7 +5,7 @@
 University of Santiago of Chile    
 Department: Computer Engineering     
 Paradigm: Functional                  
-Lenguage: Scheeme
+Programming Lenguage: Scheme               
 Developer: Bastián Escribano - @vastien
 
 
