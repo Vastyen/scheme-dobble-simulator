@@ -20,11 +20,12 @@ Scheme was created during the 1970s at the MIT AI Lab and released by its develo
 
 ## Dobble Game
 
-Dobble info game
+The game uses a deck of 55 cards, each printed with eight different symbols. Any two cards always share one, and only one, matching symbol. The objective of the game is to be the first one to announce the common symbol between two given cards
 
-### Features
+### Features (in process)
 
-Features of the game
+* Create Cards
+* Start a Game
 
 
 
