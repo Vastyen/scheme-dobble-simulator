@@ -30,7 +30,7 @@ Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuale
 * [Dr.Racket 8.2 o superior](https://download.racket-lang.org/)         
 * [Git](https://git-scm.com/downloads)
 
-     ## Uso
+  ### Uso
 
         Clonar el repositorio https://github.com/vastien/scheme/
         
