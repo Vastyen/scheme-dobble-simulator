@@ -1,4 +1,4 @@
-# Paradigma Funcional con Scheme
+# Paradigma Funcional con Scheme 入
 ## Dobble con Scheme
 
 Universidad de Santiago de Chile            
