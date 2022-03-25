@@ -41,7 +41,7 @@ Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuale
                 $ cd functionalParadigm
                 $ git clone https://github.com/vastien/scheme/
                 
-        Linux and MacOS 
+        Unix (Linux and MacOS) 
         
                 $ mkdir functionalParadigm
                 $ cd functionalParadigm
