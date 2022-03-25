@@ -3,7 +3,7 @@
 
 Universidad de Santiago de Chile            
 Departamento de Ingeniería Informática                
-Paradigma: Funcional
+Paradigma: Funcional           
 Lenguaje de Programación: Scheme               
 Desarrollador: Bastián Escribano - @vastien              
 
