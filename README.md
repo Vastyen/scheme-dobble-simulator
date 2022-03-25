@@ -11,7 +11,7 @@ Desarrollador: Bastián Escribano - @vastien
 ## Introducción 
 La programación funcional es un paradigma de programación declarativa basado en el uso de verdaderas funciones matemáticas. En este estilo de programación las funciones son ciudadanas de primera clase, porque sus expresiones pueden ser asignadas a variables como se haría con cualquier otro valor; además de que pueden crearse funciones de orden superior
 
-## About Scheme
+## Scheme
 Scheme es un lenguaje de programación funcional y un dialecto de Lisp. Fue desarrollado por Guy L. Steele y Gerald Jay Sussman en la década de los setenta e introducido en el mundo académico a través de una serie de artículos conocidos como los Lambda Papers de Sussman y Steele. La filosofía de Scheme es minimalista.
 
 ## Dobble
