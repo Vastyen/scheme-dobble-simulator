@@ -1,11 +1,11 @@
 # Paradigma Funcional con Scheme
 ## Dobble con Scheme
 
-Universidad de Santiago de Chile    
-Departamento de Ingeniería Informática
+Universidad de Santiago de Chile            
+Departamento de Ingeniería Informática                
 Paradigma: Funcional
-Lenguaje de Programación: Scheme
-Desarrollador: Bastián Escribano - @vastien
+Lenguaje de Programación: Scheme               
+Desarrollador: Bastián Escribano - @vastien              
 
 
 ## Introducción 
