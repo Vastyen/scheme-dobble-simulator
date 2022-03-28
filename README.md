@@ -29,6 +29,9 @@ __________________
 
 ## Tipos de Dato Abstracto
 
+### Constructor
+Dominio -> Elements (list) X numE(int) X maxC(int) X rndFn (fn)
+Recorrido -> cardsSet
 
 
 
