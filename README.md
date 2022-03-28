@@ -22,7 +22,15 @@ Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuale
 
 ### Funcionalidades (en proceso)
 
-* Crear Cartas (cardSet)
+* Crear Cartas (cardsSet)
+
+
+
+### Tipos de Dato Abstracto
+## cardSet
+# Constructor
+
+
 
 
 ## Instalación
