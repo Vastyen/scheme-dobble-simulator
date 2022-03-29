@@ -35,7 +35,7 @@ Recorrido -> cardsSet
 ## Instalación
 
 ### Requerimientos
-* [Dr.Racket 8.2 o superior](https://download.racket-lang.org/)         
+* [Dr.Racket 6.11 o superior](https://download.racket-lang.org/)         
 * [Git](https://git-scm.com/downloads)
 
   ### Uso
