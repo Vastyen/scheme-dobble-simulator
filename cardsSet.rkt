@@ -18,7 +18,11 @@
                   )))
 
 ;; Función random para la selección aleatoria de elementos desde un conjunto, asignación aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
-(define rndFn(lambda()))
+;; Dominio: Integer Integer
+;; Recorrido: Integer
+(define rndFn(lambda(min max)
+               (random min max)
+               ))
 
 
 ;; Función que permite verificar si el conjunto de cartas en el conjunto corresponden a un conjunto válido.
