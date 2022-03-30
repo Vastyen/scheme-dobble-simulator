@@ -23,8 +23,12 @@
 ;; Función random para la selección aleatoria de elementos desde un conjunto, asignación aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
 ;; Dominio: Integer Integer
 ;; Recorrido: Integer
+<<<<<<< HEAD
 ;; Ejemplo de Uso: randomFn(10 50) // Genera un número aleatoreo entre 10 y 50.
 (define randomFn(lambda(min max)
+=======
+(define rndFn(lambda(min max)
+>>>>>>> cd1d4c3d27a28c6b9e17a0ca638e6f232ce23362
                (random min max)
                ))
 
