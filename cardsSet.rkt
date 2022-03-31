@@ -7,6 +7,11 @@
 
 ;; ______________________________________________________________________________
 
+(define orderGame)(lambda(numE)())
+
+(define maxCards(lambda (cardsSet orderGame)
+                  '(Elements numE randomFn)
+                  ))
 
 ;; Función constructora de conjuntos válidos de cartas para el juego Dobble.
 ;; Dominio: Elements (list) X numE(int) X maxC(int) X rndFn (fn)
@@ -14,46 +19,66 @@
 ;; Ejemplo de Uso: (cardsSet (list “A” “B” “C”) 2 -1 randomFn)
 ;; lista de elementos a partir de TDA element definido por el usuario
 ;; (cardsSet (list (element “A”) (element “B”) (element “C”)) 2 -1 randomFn)
-(define cardsSet(lambda (Elements numE maxC rndFn)
-               (if (and (list? Elements) (integer? numE) (integer? maxC) (procedure? rndFn))
-                   (if (<= maxC 0)
-                       "hola"
-                  ))))
+
+
+(define cardsSet(lambda (Elements numE maxC randomFn)
+                  (if (and (list? Elements) (integer? numE) (integer? maxC) (procedure? randomFn))
+                      (if (<= maxC 0)
+                          (maxCards cardsSet)
+                          #f)
+                      '("No pertenecen")
+                      )))
+;; _________ Selectores ___________
+
+(define getElements(lambda(cardsSet)(null)))
+(define getNumE(lambda(cardsSet)(null)))
+(define getMaxC(lambda(cardsSet)(null)))
+(define getRandomFn(lambda(cardsSet)(null)))
+
+
+;; ________ Mutuadores ____________
+
+(define setElements(lambda(cardsSet)(null)))
+(define setNumE(lambda(cardsSet)(null)))
+(define setMaxE(lambda(cardsSet)(null)))
+(define setRandomFn(lambda(cardsSet)(null)))
+
+
 
 ;; Función random para la selección aleatoria de elementos desde un conjunto, asignación aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
 ;; Dominio: Integer Integer
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: randomFn(10 50) // Genera un número aleatoreo entre 10 y 50.
 (define randomFn(lambda(min max)
-               (random min max)
-               ))
+                  (random min max)
+                  ))
 
 
 ;; Función que permite verificar si el conjunto de cartas en el conjunto corresponden a un conjunto válido.
 ;; Dominio: cardsSet
 ;; Recorrido: Boolean
 ;; Ejemplo de Uso: (dobble? (cardsSet (list “A” “B” “C”) 2 -1 randomFn))
-(define dobble?(lambda(cardsSet)))
+(define dobble?(lambda(cardsSet)(null)))
 
 
 ;; Función que permite determinar la cantidad de cartas en el set.
 ;; Dominio: cardsSet
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: (numCards (cardsSet (list “A” “B” “C”) 2 -1 randomFn))
-(define numCards(lambda(cardsSet)))
+(define numCards(lambda(cardsSet)(null)))
 
 
 ;; Función que obtiene la n-ésima (nth) carta desde el conjunto de cartas partiendo desde 0 hasta (totalCartas-1).
 ;; Dominio: cardSet
 ;; Recorrido: card
 ;; Ejemplo de Uso: (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1)
-(define nthCard(lambda(cardsSet)))
+(define nthCard(lambda(cardsSet)(null)))
 
 ;; Función que a partir de una carta de muestra, determina la cantidad total de cartas que se deben producir para construir un conjunto válido.
 ;; Dominio: card
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define findTotalCards(lambda(card)))
+(define findTotalCards(lambda(card)(null)))
 
 
 
@@ -61,7 +86,7 @@
 ;; Dominio: card
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: (requiredElements (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define requiredElements(lambda(card)))
+(define requiredElements(lambda(card)(null)))
 
 
 
@@ -69,13 +94,13 @@
 ;; Dominio: cardsSet
 ;; Recorrido: cardsSet
 ;; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define missingCards(lambda(cardsSet)))
+(define missingCards(lambda(cardsSet)(null)))
 
 
 ;; Función que convierte un conjunto de cartas a una representación basada en strings que posteriormente pueda visualizarse a través de la función display.
 ;; Dominio: cardsSet
 ;; Recorrido: String
 ;; Ejemplo de Uso: (cardsSet->string (cardsSet (list “A” “B” “C”)))
-(define cardsSet->string(lambda(cardsSet)))
+(define cardsSet->string(lambda(cardsSet)(null)))
 
 
