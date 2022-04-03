@@ -43,22 +43,26 @@
 ;; _______________________ SELECTORES _______________________________
 
 
-(define getElements(lambda (cardsSet)
-                     (car cardsSet)))
+(define getElements
+  (lambda (cardsSet)
+    (car cardsSet)))
 
-(define getNumE(lambda(cardsSet)
-                                 (car (cdr cardsSet))))
+(define getNumE
+  (lambda(cardsSet)
+    (car (cdr cardsSet))))
 
-(define getMaxC(lambda(cardsSet)(
-                                 (car (cdr(cdr cardsSet))))))
+(define getMaxC
+  (lambda(cardsSet)(
+    (car (cdr(cdr cardsSet))))))
 
-(define getRandom(lambda(cardsSet)(
-                                   (car (cdr(cdr (cdr cardsSet)))))))
+(define getRandom
+  (lambda(cardsSet)(
+    (car (cdr(cdr (cdr cardsSet)))))))
 
 
-(define getOrderGame(lambda(cardsSet)
-                   (- (getNumE cardsSet) 1)
-                   ))
+(define getOrderGame
+  (lambda(cardsSet)
+    (- (getNumE cardsSet) 1)))
 
 
 ;; Función random para la selección aleatoria de elementos desde un conjunto, asignación
@@ -66,72 +70,80 @@
 ;; Dominio: Integer Integer
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: randomFn(10 50) // Genera un número aleatoreo entre 10 y 50.
-(define createRandom(lambda(min max)
-                      (random min (+ 1 max)
-                              )))
+(define createRandom
+  (lambda(min max)
+    (random min (+ 1 max))))
                  
 ;; _______________________ MUTUADORES _______________________________
 
 
-(define setElements(lambda(cardsSet newElements)(
-                                                 (list newElements (getNumE cardsSet) (getMaxC cardsSet) (getRandom cardsSet) )                                  
-                                                 )))
+(define setElements
+  (lambda(cardsSet newElements)(
+    (list newElements (getNumE cardsSet) (getMaxC cardsSet) (getRandom cardsSet)))))
 
-(define setNumE(lambda(cardsSet newNumE)(
-                                         (list (getElements cardsSet) newNumE (getMaxC cardsSet) (getRandom cardsSet))                          
-                                         )))
-(define setMaxC(lambda(cardsSet newMaxC)(
-           (list (getElements cardsSet) (getNumE cardsSet) newMaxC (getRandom cardsSet)) 
-                                        )))
-(define setRandom(lambda(cardsSet newRandom)
-                   (list (getElements cardsSet) (getNumE cardsSet) (getMaxC) newRandom) 
-                    ))
+(define setNumE
+  (lambda(cardsSet newNumE)(
+     (list (getElements cardsSet) newNumE (getMaxC cardsSet) (getRandom cardsSet)))))
 
+(define setMaxC
+  (lambda(cardsSet newMaxC)(
+     (list (getElements cardsSet) (getNumE cardsSet) newMaxC (getRandom cardsSet)))))
 
+(define setRandom
+  (lambda(cardsSet newRandom)
+     (list (getElements cardsSet) (getNumE cardsSet) (getMaxC) newRandom)))
 
+;; _______________________ FUNCIONALIDADES _______________________________
 
 ;; Función que permite determinar la cantidad de cartas en el set.
 ;; Dominio: cardsSet
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: (numCards (cardsSet (list “A” “B” “C”) 2 -1 randomFn))
-(define numCards(lambda(cardsSet)
-                  (+(+(* (getOrderGame cardsSet) (getOrderGame cardsSet)) (getOrderGame cardsSet))1)
-                  ))
+(define numCards
+  (lambda(cardsSet)
+    (+(+(* (getOrderGame cardsSet) (getOrderGame cardsSet)) (getOrderGame cardsSet))1)))
                                
-
 ;; Función que obtiene la n-ésima (nth) carta desde el conjunto de cartas partiendo
 ;; desde 0 hasta (totalCartas-1).
 ;; Dominio: cardSet
 ;; Recorrido: card
 ;; Ejemplo de Uso: (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1)
-(define nthCard(lambda(cardsSet)(null)))
+(define nthCard
+  (lambda(cardsSet)
+    (null)))
 
 ;; Función que a partir de una carta de muestra, determina la cantidad total de cartas
 ;; que se deben producir para construir un conjunto válido.
 ;; Dominio: card
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define findTotalCards(lambda(card)(null)))
+(define findTotalCards
+  (lambda(card)
+    (null)))
 
 ;; Función que a partir de una carta de muestra, determina la cantidad total de elementos
 ;; necesarios para poder construir un conjunto válido.
 ;; Dominio: card
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: (requiredElements (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define requiredElements(lambda(card)(null)))
+(define requiredElements
+  (lambda(card)
+    (null)))
 
 ;; Función que a partir de un conjunto de cartas retorna el conjunto de cartas que hacen
 ;; falta para que el set sea válido.
 ;; Dominio: cardsSet
 ;; Recorrido: cardsSet
 ;; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define missingCards(lambda(cardsSet)(null)))
+(define missingCards
+  (lambda(cardsSet)
+    (null)))
 
 ;; Función que convierte un conjunto de cartas a una representación basada en strings que
 ;; posteriormente pueda visualizarse a través de la función display.
 ;; Dominio: cardsSet
 ;; Recorrido: String
 ;; Ejemplo de Uso: (cardsSet->string (cardsSet (list “A” “B” “C”)))
-(define cardsSet->string(lambda(cardsSet)(null)))
-
-
+(define cardsSet->string
+  (lambda(cardsSet)
+    (null)))
