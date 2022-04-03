@@ -33,7 +33,7 @@
   (lambda (elements numE maxC createRandom)
     (cond
       [(and (list? elements) (integer? numE) 
-            (integer? maxC) (procedure? createRandom)) 
+            (integer? maxC) createRandom) 
        #t]
       [else #f])))
 
@@ -42,8 +42,8 @@
 (define getElements(lambda (cardsSet)
                      (car cardsSet)))
 
-(define getNumE(lambda(cardsSet)(
-                                 (car (cdr cardsSet)))))
+(define getNumE(lambda(cardsSet)
+                                 (car (cdr cardsSet))))
 
 (define getMaxC(lambda(cardsSet)(
                                  (car (cdr(cdr cardsSet))))))
@@ -77,11 +77,19 @@
                     ))
 
 
+(define getOrderGame(lambda(cardsSet)
+                   (- (getNumE cardsSet) 1)
+                   ))
+
+
 ;; Función que permite determinar la cantidad de cartas en el set.
 ;; Dominio: cardsSet
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: (numCards (cardsSet (list “A” “B” “C”) 2 -1 randomFn))
-(define numCards(lambda(cardsSet)(null)))
+(define numCards(lambda(cardsSet)
+                  (+(+(* (getOrderGame cardsSet) (getOrderGame cardsSet)) (getOrderGame cardsSet))1)
+                  ))
+                               
 
 ;; Función que obtiene la n-ésima (nth) carta desde el conjunto de cartas partiendo
 ;; desde 0 hasta (totalCartas-1).
