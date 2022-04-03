@@ -20,55 +20,62 @@
 ;; (cardsSet (list (element “A”) (element “B”) (element “C”)) 2 -1 getRandom)
 
 (define cardsSet
-  (lambda (elements numE maxC getRandom)
+  (lambda (elements numE maxC createRandom)
     (cond
-      [(cardsSet? elements numE maxC getRandom) 
-       (list elements numE maxC getRandom)]
+      [(cardsSet? elements numE maxC createRandom) 
+       (list elements numE maxC createRandom)]
       [else null]))) ; null retorna una lista vacia, es lo mismo que '() o (list), luego si quieres preguntar si una lista es vacia, lo haces con null?
 
 ;; Función que valida si los argumentos entregados corresponden a un TDA cardSet
 ;; Dominio: elements x numE x maxC x getRandom
 ;; Recorrido: boolean
 (define cardsSet?
-  (lambda (elements numE maxC getRandom)
+  (lambda (elements numE maxC createRandom)
     (cond
       [(and (list? elements) (integer? numE) 
-            (integer? maxC) (procedure? getRandom)) 
+            (integer? maxC) (procedure? createRandom)) 
        #t]
       [else #f])))
 
 ;; _________ Selectores ___________
 
 (define getElements(lambda (cardsSet)
-    (car cardsSet)))
+                     (car cardsSet)))
 
 (define getNumE(lambda(cardsSet)(
-    (car (cdr cardsSet)))))
+                                 (car (cdr cardsSet)))))
 
 (define getMaxC(lambda(cardsSet)(
-    (car (cdr(cdr cardsSet))))))
+                                 (car (cdr(cdr cardsSet))))))
+
+(define getRandom(lambda(cardsSet)(
+                                   (car (cdr(cdr (cdr cardsSet)))))))
 
 ;; Función random para la selección aleatoria de elementos desde un conjunto, asignación
 ;; aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
 ;; Dominio: Integer Integer
 ;; Recorrido: Integer
 ;; Ejemplo de Uso: randomFn(10 50) // Genera un número aleatoreo entre 10 y 50.
-(define getRandom(lambda(min max)
-                  (random min (+ 1 max)
-                  )))
+(define createRandom(lambda(min max)
+                      (random min (+ 1 max)
+                              )))
                  
 ;; ________ Mutuadores ____________
 
-(define setElements(lambda(cardsSet)(null)))
-(define setNumE(lambda(cardsSet)(null)))
-(define setMaxC(lambda(cardsSet)(null)))
+(define setElements(lambda(cardsSet newElements)(
+                                                 (list newElements (getNumE cardsSet) (getMaxC cardsSet) (getRandom cardsSet) )                                  
+                                                 )))
 
-;; Función que permite verificar si el conjunto de cartas en el conjunto corresponden
-;; a un conjunto válido.
-;; Dominio: cardsSet
-;; Recorrido: Boolean
-;; Ejemplo de Uso: (dobble? (cardsSet (list “A” “B” “C”) 2 -1 randomFn))
-(define dobble?(lambda(cardsSet)(null)))
+(define setNumE(lambda(cardsSet newNumE)(
+                                         (list (getElements cardsSet) newNumE (getMaxC cardsSet) (getRandom cardsSet))                          
+                                         )))
+(define setMaxC(lambda(cardsSet newMaxC)(
+           (list (getElements cardsSet) (getNumE cardsSet) newMaxC (getRandom cardsSet)) 
+                                        )))
+(define setRandom(lambda(cardsSet newRandom)
+                   (list (getElements cardsSet) (getNumE cardsSet) (getMaxC) newRandom) 
+                    ))
+
 
 ;; Función que permite determinar la cantidad de cartas en el set.
 ;; Dominio: cardsSet
