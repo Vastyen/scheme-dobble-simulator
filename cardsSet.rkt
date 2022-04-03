@@ -1,5 +1,8 @@
 #lang racket
 
+;; _______________________ CONSTRUCTOR _______________________________
+
+;; Descripción de los parámetros a recibir para la función constructor.
 ;; Elements: Lista desde donde se puede obtener una muestra de elementos
 ;; (números, letras, figuras, etc.) para construir el conjunto de cartas.
 ;; numE: Entero positivo que indica la cantidad de elementos esperada en cada carta
@@ -37,7 +40,8 @@
        #t]
       [else #f])))
 
-;; _________ Selectores ___________
+;; _______________________ SELECTORES _______________________________
+
 
 (define getElements(lambda (cardsSet)
                      (car cardsSet)))
@@ -51,6 +55,12 @@
 (define getRandom(lambda(cardsSet)(
                                    (car (cdr(cdr (cdr cardsSet)))))))
 
+
+(define getOrderGame(lambda(cardsSet)
+                   (- (getNumE cardsSet) 1)
+                   ))
+
+
 ;; Función random para la selección aleatoria de elementos desde un conjunto, asignación
 ;; aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
 ;; Dominio: Integer Integer
@@ -60,7 +70,8 @@
                       (random min (+ 1 max)
                               )))
                  
-;; ________ Mutuadores ____________
+;; _______________________ MUTUADORES _______________________________
+
 
 (define setElements(lambda(cardsSet newElements)(
                                                  (list newElements (getNumE cardsSet) (getMaxC cardsSet) (getRandom cardsSet) )                                  
@@ -77,9 +88,6 @@
                     ))
 
 
-(define getOrderGame(lambda(cardsSet)
-                   (- (getNumE cardsSet) 1)
-                   ))
 
 
 ;; Función que permite determinar la cantidad de cartas en el set.
