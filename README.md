@@ -1,5 +1,5 @@
 # Paradigma Funcional con Scheme 
-## Dobble con Scheme • 入
+## Dobble con Scheme
 
 Universidad de Santiago de Chile            
 Departamento de Ingeniería Informática                
