@@ -1,5 +1,7 @@
 #lang racket
 
+(provide cardsSet?)
+
 ;; _______________________ PARÁMETROS _______________________________
 
 ;; Descripción de los parámetros a recibir para la función constructor.
