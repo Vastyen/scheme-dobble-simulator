@@ -1,6 +1,6 @@
 #lang racket
 
-;; _______________________ CONSTRUCTOR _______________________________
+;; _______________________ PARÁMETROS _______________________________
 
 ;; Descripción de los parámetros a recibir para la función constructor.
 ;; Elements: Lista desde donde se puede obtener una muestra de elementos
@@ -13,7 +13,7 @@
 ;; La función se puede usar internamente para aleatorizar aspectos en la generación de
 ;; cartas tales como orden de los elementos, tamaño de los elementos, etc. 
 
-;; _____________________________________________________________________
+;; _______________________ CONSTRUCTOR _______________________________
 
 ;; Función constructora de conjuntos válidos de cartas para el juego Dobble.
 ;; Dominio: Elements (list) X numE(int) X maxC(int) X getRandom (fn)
