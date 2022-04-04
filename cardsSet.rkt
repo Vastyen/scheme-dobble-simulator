@@ -91,18 +91,30 @@
 ;; _______________________ MUTUADORES _______________________________
 
 
+;; Función que retorna una nueva lista con los elements modificados.
+;; Dominio: cardsSet X list
+;; Recorrido: cardsSet
 (define setElements
   (lambda(cardsSet newElements)(
     (list newElements (getNumE cardsSet) (getMaxC cardsSet) (getRandom cardsSet)))))
 
+;; Función que retorna una nueva lista con el número de elementos modificado.
+;; Dominio: cardsSet X integer
+;; Recorrido: cardsSet
 (define setNumE
   (lambda(cardsSet newNumE)(
      (list (getElements cardsSet) newNumE (getMaxC cardsSet) (getRandom cardsSet)))))
 
+;; Función que retorna una nueva lista con el cardsSet y con el máximo de cartas a generar modificado.
+;; Dominio: cardsSet X integer
+;; Recorrido: cardsSet
 (define setMaxC
   (lambda(cardsSet newMaxC)(
      (list (getElements cardsSet) (getNumE cardsSet) newMaxC (getRandom cardsSet)))))
 
+;; Función que retorna una nueva lista con el número random modificado.
+;; Dominio: cardsSet X integer
+;; Recorrido: cardsSet
 (define setRandom
   (lambda(cardsSet newRandom)
      (list (getElements cardsSet) (getNumE cardsSet) (getMaxC) newRandom)))
