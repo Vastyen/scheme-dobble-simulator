@@ -4,7 +4,7 @@
 Universidad de Santiago de Chile            
 Departamento de Ingeniería Informática                
 Paradigma: Funcional           
-Fecha de Entrega: Viernes 15 de Abril del 2022                     
+Fecha de Entrega: 18 Abril del 2022                     
 Lenguaje de Programación: Scheme               
 Desarrollador: Bastián Escribano - @vastien              
 
