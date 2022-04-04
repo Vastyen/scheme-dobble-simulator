@@ -43,27 +43,41 @@
 ;; _______________________ SELECTORES _______________________________
 
 
+;; Función selectora para los elementos recibidos en el cardsSet
+;; Dominio: cardsSet
+;; Recorrido: list 
 (define getElements
   (lambda (cardsSet)
     (car cardsSet)))
 
+;; Función selectora para obtener el número de elementos en cada carta
+;; Dominio: cardsSet
+;; Recorrido: integer 
 (define getNumE
   (lambda(cardsSet)
     (car (cdr cardsSet))))
 
+
+;; Función selectora que retorna el número de cartas máximas
+;; Dominio: cardsSet
+;; Recorrido: integer
 (define getMaxC
   (lambda(cardsSet)(
     (car (cdr(cdr cardsSet))))))
 
+;; Función selectora del número aleatoreo obtenido en el cardsSet
+;; Dominio: cardsSet
+;; Recorrido: integer
 (define getRandom
   (lambda(cardsSet)(
     (car (cdr(cdr (cdr cardsSet)))))))
 
-
+;; Función selectora que obtiene el orden del juego.
+;; Dominio: cardsSet
+;; Recorrido: integer
 (define getOrderGame
   (lambda(cardsSet)
     (- (getNumE cardsSet) 1)))
-
 
 ;; Función random para la selección aleatoria de elementos desde un conjunto, asignación
 ;; aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
@@ -115,7 +129,7 @@
 ;; Función que a partir de una carta de muestra, determina la cantidad total de cartas
 ;; que se deben producir para construir un conjunto válido.
 ;; Dominio: card
-;; Recorrido: Integer
+;; Recorrido: integer
 ;; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
 (define findTotalCards
   (lambda(card)
@@ -124,7 +138,7 @@
 ;; Función que a partir de una carta de muestra, determina la cantidad total de elementos
 ;; necesarios para poder construir un conjunto válido.
 ;; Dominio: card
-;; Recorrido: Integer
+;; Recorrido: integer
 ;; Ejemplo de Uso: (requiredElements (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
 (define requiredElements
   (lambda(card)
@@ -142,7 +156,7 @@
 ;; Función que convierte un conjunto de cartas a una representación basada en strings que
 ;; posteriormente pueda visualizarse a través de la función display.
 ;; Dominio: cardsSet
-;; Recorrido: String
+;; Recorrido: string
 ;; Ejemplo de Uso: (cardsSet->string (cardsSet (list “A” “B” “C”)))
 (define cardsSet->string
   (lambda(cardsSet)
