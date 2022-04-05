@@ -42,8 +42,21 @@
        #t]
       [else #f])))
 
-;; _______________________ SELECTORES _______________________________
 
+(define card(lambda(symbols)
+               (list symbols)))
+
+(define cards(lambda(card)
+               (append card)
+               ))
+(define createCards(lambda(card getMaxC)
+                     (if (< (getMaxC cardsSet) 0)
+                         (createCards)
+                        ((append card)
+                          (createCards card (- getMaxC 1))))))
+
+  
+;; _______________________ SELECTORES _______________________________
 
 ;; Función selectora para los elementos recibidos en el cardsSet
 ;; Dominio: cardsSet
@@ -65,7 +78,7 @@
 ;; Recorrido: integer
 (define getMaxC
   (lambda(cardsSet)(
-    (car (cdr(cdr cardsSet))))))
+    (car(cdr(cdr cardsSet))))))
 
 ;; Función selectora del número aleatoreo obtenido en el cardsSet
 ;; Dominio: cardsSet
