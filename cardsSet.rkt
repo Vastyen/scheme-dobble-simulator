@@ -43,19 +43,24 @@
       [else #f])))
 
 
+; Función que define una carta con símbolos
+; Dominio: symbols
+; Recorrido; card
 (define card(lambda(symbols)
-               (list symbols)))
+               symbols))
 
-(define cards(lambda(card)
-               (append card)
-               ))
-(define createCards(lambda(card getMaxC)
-                     (if (< (getMaxC cardsSet) 0)
-                         (createCards)
-                        ((append card)
-                          (createCards card (- getMaxC 1))))))
+; Función que define una baraja de cartas
+; Dominio: card X getMaxC
+; Recorrido: cards (list)
+; Tipo de Recursión: Cola.
+(define (cards card getMaxC) 
+   (define cardsEnvoltorio(lambda(x getMaxC baraja)
+                           (if (= x getMaxC) ; Cuerpo
+                               baraja ; Retorna la baraja.
+                               (cardsEnvoltorio (+ x 1) getMaxC (append (list card (+ x 1)) baraja))
+                            )))
+  (cardsEnvoltorio 0 getMaxC (list))) ; Función encapsulada.
 
-  
 ;; _______________________ SELECTORES _______________________________
 
 ;; Función selectora para los elementos recibidos en el cardsSet
@@ -77,8 +82,8 @@
 ;; Dominio: cardsSet
 ;; Recorrido: integer
 (define getMaxC
-  (lambda(cardsSet)(
-    (car(cdr(cdr cardsSet))))))
+  (lambda(cardsSet)
+    (car(cdr(cdr cardsSet)))))
 
 ;; Función selectora del número aleatoreo obtenido en el cardsSet
 ;; Dominio: cardsSet
