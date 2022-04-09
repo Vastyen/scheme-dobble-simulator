@@ -45,8 +45,9 @@
 ; Función que define una carta con símbolos
 ; Dominio: symbols
 ; Recorrido; card
-(define card(lambda(symbols)
-               symbols))
+
+(define card(lambda(getElements)
+               getElements))
 
 ; Función que define una baraja de cartas
 ; Dominio: card X getMaxC
@@ -56,7 +57,7 @@
    (define cardsEnvoltorio(lambda(x getMaxC baraja)
                            (if (= x getMaxC) ; Cuerpo
                                baraja ; Retorna la baraja.
-                               (cardsEnvoltorio (+ x 1) getMaxC (append (list card (+ x 1)) baraja))
+                               (cardsEnvoltorio (+ x 1) getMaxC (append (list card) baraja))
                             )))
   (cardsEnvoltorio 0 getMaxC (list))) ; Función encapsulada.
 
