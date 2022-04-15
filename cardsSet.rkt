@@ -185,18 +185,20 @@
 ; Dominio: cards X integer
 ; Recorrido: card
 ; Ejemplo de Uso: (nthCard (cards 10) 3)
-(define nthCard (lambda (cards nth)
-                    (if (= nth 0)
-                        (car cards)
-                        (nthCard (cdr cards) (- nth 1)))))
+(define nthCard
+  (lambda (cards nth)
+    (if (= nth 0)
+        (car cards)
+        (nthCard (cdr cards) (- nth 1)))))
 
 ; Función que a partir de una carta de muestra, determina la cantidad total de cartas
 ; que se deben producir para construir un conjunto válido.
 ; Dominio: card
 ; Recorrido: integer
 ; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define findTotalCards (lambda (card)
-                    (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
+(define findTotalCards
+  (lambda (card)
+    (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
 
 
 ; Función que a partir de una carta de muestra, determina la cantidad total de elementos
@@ -204,8 +206,9 @@
 ; Dominio: card
 ; Recorrido: integer
 ; Ejemplo de Uso: (requiredElements (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define requiredElements (lambda (card)
-                    (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
+(define requiredElements
+  (lambda (card)
+    (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
 
 
 
