@@ -42,24 +42,7 @@
        #t]
       [else #f])))
 
-; Función que define una carta con símbolos
-; Dominio: symbols
-; Recorrido; card
 
-(define card(lambda(getElements)
-               getElements))
-
-; Función que define una baraja de cartas
-; Dominio: card X getMaxC
-; Recorrido: cards (list)
-; Tipo de Recursión: Cola.
-(define (cards card getMaxC) 
-   (define cardsEnvoltorio(lambda(x getMaxC baraja)
-                           (if (= x getMaxC) ; Cuerpo
-                               baraja ; Retorna la baraja.
-                               (cardsEnvoltorio (+ x 1) getMaxC (append (list card) baraja))
-                            )))
-  (cardsEnvoltorio 0 getMaxC (list))) ; Función encapsulada.
 
 ; _______________________ SELECTORES _______________________________
 
@@ -139,6 +122,56 @@
 
 ; _______________________ FUNCIONALIDADES _______________________________
 
+
+
+; Función que genera un mazo de tipo card
+; Dominio: getOrderGame
+; Recorrido: cards
+(define generateDeck
+  (lambda(orderGame)
+    (reverse(reverseDeck orderGame))))
+(define reverseDeck
+  (lambda(orderGame)
+    (define tempCard '())
+    (define deck '())
+    (define addSymbol
+      (lambda(symbol emptyCard)
+        (cons symbol emptyCard)))
+    (define addCardToCards
+      (lambda(card deck)
+        (cons card deck)))
+      (define fistCard
+        (lambda(card i orderGame)
+          (if (not(= i(+ 2 orderGame)))
+              (fistCard (addCardToCards i card) (+ 1 i) orderGame) card)))
+    (define nCards
+      (lambda(endValue j cards)
+      (define Encap-nCard
+        (lambda(card k j orderGame)
+           (if (not(= k (+ 1 orderGame)))
+               (Encap-nCard (addSymbol (+ (* orderGame j) (+ k 1)) card) (+ k 1) j orderGame) card)))
+           (if (not(= (+ 1 endValue) j))
+               (nCards endValue (+ j 1) (addCardToCards (reverse (Encap-nCard (addSymbol 1 tempCard) 1 j endValue)) cards))
+                cards)))
+    (define nnCards
+      (lambda(endValue i cards)
+        (define Encap-nnCard
+          (lambda(cards i j orderGame)
+            (define Encap-Encap-nnCard
+              (lambda(card i j k orderGame)
+                (if (not(= k (+ 1 orderGame)))
+                    (Encap-Encap-nnCard (addSymbol (+ orderGame 2 (* orderGame (- k 1)) (remainder (- (+ (* (- i 1) (- k 1)) j) 1) orderGame)) card)i j (+ 1 k) orderGame) card)))
+            (if (not(= j (+ 1 orderGame)))
+                (Encap-nnCard (addCardToCards (reverse (Encap-Encap-nnCard (addSymbol (+ 1 i) tempCard) i j 1 orderGame)) cards) i (+ j 1) orderGame) cards)))
+        (if (not(= i (+ 1 endValue)))
+           (nnCards endValue (+ 1 i) (Encap-nnCard cards i 1 endValue))
+            cards)))
+    (nnCards orderGame 1
+             (nCards orderGame 1
+                     (addCardToCards
+                      (reverse(fistCard tempCard 1 orderGame)) deck)))))
+
+
 ; Función que permite determinar la cantidad de cartas en el set.
 ; Dominio: cardsSet
 ; Recorrido: integer
@@ -149,12 +182,12 @@
                                
 ; Función que obtiene la n-ésima (nth) carta desde el conjunto de cartas partiendo
 ; desde 0 hasta (totalCartas-1).
-; Dominio: cardSet
+; Dominio: cardSet x integer
 ; Recorrido: card
 ; Ejemplo de Uso: (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1)
 (define nthCard
   (lambda(cardsSet)
-    (null)))
+    (generateDeck (cardsSet getOrderGame))))
 
 ; Función que a partir de una carta de muestra, determina la cantidad total de cartas
 ; que se deben producir para construir un conjunto válido.
