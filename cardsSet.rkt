@@ -29,7 +29,8 @@
     (cond
       [(cardsSet? elements numE maxC createRandom) 
        (list elements numE maxC createRandom)]
-      [else null]))) ; null retorna una lista vacia, es lo mismo que '() o (list), luego si quieres preguntar si una lista es vacia, lo haces con null?
+      [else null])
+    )) ; null retorna una lista vacia, es lo mismo que '() o (list), luego si quieres preguntar si una lista es vacia, lo haces con null?
 
 ; Función que valida si los argumentos entregados corresponden a un TDA cardSet
 ; Dominio: elements x numE x maxC x getRandom
@@ -127,7 +128,7 @@
 ; Función que genera un mazo de tipo card
 ; Dominio: getOrderGame
 ; Recorrido: cards
-(define generateDeck
+(define cards
   (lambda(orderGame)
     (reverse(reverseDeck orderGame))))
 (define reverseDeck
@@ -171,47 +172,47 @@
                      (addCardToCards
                       (reverse(fistCard tempCard 1 orderGame)) deck)))))
 
-
 ; Función que permite determinar la cantidad de cartas en el set.
 ; Dominio: cardsSet
 ; Recorrido: integer
 ; Ejemplo de Uso: (numCards (cardsSet (list “A” “B” “C”) 2 -1 randomFn))
 (define numCards
   (lambda(cardsSet)
-    (+(+(* (getOrderGame cardsSet) (getOrderGame cardsSet)) (getOrderGame cardsSet))1)))
+    (+(+(* (getOrderGame cardsSet) (getOrderGame cardsSet)) (getOrderGame cardsSet)) 1)))
                                
 ; Función que obtiene la n-ésima (nth) carta desde el conjunto de cartas partiendo
 ; desde 0 hasta (totalCartas-1).
-; Dominio: cardSet x integer
+; Dominio: cards X integer
 ; Recorrido: card
-; Ejemplo de Uso: (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1)
-(define nthCard
-  (lambda(cardsSet)
-    (generateDeck (cardsSet getOrderGame))))
+; Ejemplo de Uso: (nthCard (cards 10) 3)
+(define nthCard (lambda (cards nth)
+                    (if (= nth 0)
+                        (car cards)
+                        (nthCard (cdr cards) (- nth 1)))))
 
 ; Función que a partir de una carta de muestra, determina la cantidad total de cartas
 ; que se deben producir para construir un conjunto válido.
 ; Dominio: card
 ; Recorrido: integer
 ; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define findTotalCards
-  (lambda(card)
-    (null)))
+(define findTotalCards (lambda (card)
+                    (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
+
 
 ; Función que a partir de una carta de muestra, determina la cantidad total de elementos
 ; necesarios para poder construir un conjunto válido.
 ; Dominio: card
 ; Recorrido: integer
 ; Ejemplo de Uso: (requiredElements (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
-(define requiredElements
-  (lambda(card)
-    (null)))
+(define requiredElements (lambda (card)
+                    (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
 
-; Función que a partir de un conjunto de cartas retorna el conjunto de cartas que hacen
-; falta para que el set sea válido.
+
+
+; A partir de un conjunto de cartas retorna el conjunto de cartas que hacen falta para que el set sea válido.
 ; Dominio: cardsSet
 ; Recorrido: cardsSet
-; Ejemplo de Uso: (findTotalCards (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
+; Ejemplo de Uso: (missingCards  (cardsSet (list “A” “B” “C”) 2 -1 randomFn) )
 (define missingCards
   (lambda(cardsSet)
     (null)))
