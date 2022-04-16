@@ -16,7 +16,7 @@
 ; Dominio: numPlayers(int) X cardsSet X mode (fn) X rndFn (fn)
 ; Recorrido: game -> Corresponde a la estructura que alberga el área de juego, las piezas disponibles, jugadores
 ; registrados, sus ;; cartas y el estado del juego, entre otros elementos
-; Ejemplo de Uso: (define game1 (game 4 (cardsSet (list “A” “B” “C”)) stackMode randomFn))
+; Ejemplo de Uso: (define game1 (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn))
 (define game
   (lambda(numPlayers cardsSet mode randomFn)
     (cond
@@ -75,32 +75,28 @@
 ; Recorrido: game (list)
 (define setNumPlayers
   (lambda(game newNumPlayers)
-     (list newNumPlayers (getCardsSet game) (getMode game) (getRandom game))
-     ))
+     (list newNumPlayers (getCardsSet game) (getMode game) (getRandom game))))
 
 ; Función modificadora que entrega una nueva lista con el cardsSet modificado.
 ; Dominio: game X newCardsSet
 ; Recorrido: game (list)
 (define setCardsSet
   (lambda(game newCardsSet)
-     (list (getNumPlayers game) newCardsSet (getMode game) (getRandom game))
-     ))
+     (list (getNumPlayers game) newCardsSet (getMode game) (getRandom game))))
 
 ; Función modificadora que entrega una nueva lista con el modo de juego modificado.
 ; Dominio: game X newMode
 ; Recorrido: game (list)
 (define setMode
   (lambda(game newMode)
-     (list (getNumPlayers game) (getCardsSet game) newMode (getRandom game))
-     ))
+     (list (getNumPlayers game) (getCardsSet game) newMode (getRandom game))))
 
 ; Función modificadora que entrega una nueva lista con el número aleatoreo modificado.
 ; Dominio: game X newRandom
 ; Recorrido: game (list)
 (define setRandom
   (lambda(game newRandom)
-     (list (getNumPlayers game) (getCardsSet game) (getMode game) newRandom)
-     ))
+     (list (getNumPlayers game) (getCardsSet game) (getMode game) newRandom)))
 
 ; _______________________ FUNCIONALIDADES _______________________________
 
@@ -109,18 +105,17 @@
 ; Dominio: cardsSet
 ; Recorrido: cardsSet
 ; Ejemplo de Uso: uso interno de la función como parte del constructor
-; game (game 4 (cardsSet (list “A” “B” “C”)) stackMode randomFn)
+; game (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn)
 (define stackMode
   (lambda(cardsSet)
     (reverse cardsSet)
-    (append (list(car (reverse cardsSet)) (list(cadr (reverse cardsSet))
-    )))))
+    (append (list(car (reverse cardsSet)) (list(cadr (reverse cardsSet)))))))
 
 ; Función para registrar a un jugador en un juego. Los jugadores tienen un nombre único y no puede
 ; exceder la cantidad de jugadores registrados.
 ; Dominio: string, game
 ; Recorrido: game
-; Ejemplo de Uso: (register “user1” (game 4 (cardsSet (list “A” “B” “C”) 5 5 randomFn) stackMode randomFn))
+; Ejemplo de Uso: (register “user1” (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) 5 5 randomFn) stackMode randomFn))
 (define register
   (lambda(user game)
     (cons user game)
@@ -129,7 +124,7 @@
 ; Función que retorna el usuario a quién le corresponde jugar en el turno.
 ; Dominio: game
 ; Recorrido: string
-; Ejemplo de Uso: (whoseTurnIsIt? (game 4 (cardsSet (list “A” “B” “C”)) stackMode randomFn))
+; Ejemplo de Uso: (whoseTurnIsIt? (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn))
 (define whoseTurnIsIt?
   (lambda(game)
     (null)
@@ -140,39 +135,36 @@
 ; el trabajo sobre las cartas.
 ; Dominio: game, action
 ; Recorrido: game
-; Ejemplo de Uso: (define myGame (game 4 (cardsSet (list “A” “B” “C”)) stackMode randomFn))
+; Ejemplo de Uso: (define myGame (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn))
 ; (play mGame null randomFn)
 ; (play mGame pass randomFn)
 ; (play mGame (spotIt “A”) randomFn)
 ; (play mGame finish randomFn)
 (define play
   (lambda(game action)
-    (null)
-    ))
+    (null)))
 
 ; Función que retorna el estado actual del juego
 ; Dominio: game
 ; Recorrido: string
-; Ejemplo de Uso: (status (game 4 (cardsSet (list “A” “B” “C”)) stackMode randomFn))
+; Ejemplo de Uso: (status (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn))
 (define status
   (lambda(game)
-    (null)
-    ))
+    (null)))
 
 ; Función que retorna el puntaje de un jugador a partir de su nombre de usuario.
 ; Dominio: game
 ; Recorrido: integer
-; Ejemplo de Uso: (score (game 4 (cardsSet (list “A” “B” “C”)) stackMode randomFn) “user3”)
+; Ejemplo de Uso: (score (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn) “user3”)
 (define score
   (lambda(game)
-    (null)
-    ))
+    (null)))
 
 ; Función que convierte un juego/partida a una representación basada en strings que posteriormente pueda
 ; visualizarse a través de la función display.
 ; Domino: game
 ; Recorrido: string
-; Ejemplo de Uso: (game->string (game 4 (cardsSet (list “A” “B” “C”)) stackMode randomFn))
+; Ejemplo de Uso: (game->string (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn))
 (define game->string
   (lambda(game)
     (display game)))
@@ -190,8 +182,7 @@
 ; (card “A” “C”))
 (define addCard
   (lambda(cardsSet card)
-    (cons card cardsSet)
-    ))
+    (cons card cardsSet)))
 
 ; Función que permite retirar y voltear la carta en el tope del stack y una de las cartas del usuario seleccionada
 ; de manera aleatoria a partir de la función de aleatorización registrada en el juego.
@@ -200,14 +191,13 @@
 ; Dominio: cardsSet
 ; Recorrido: cardsSet
 ; Ejemplo de Uso: uso interno de la función como parte del constructor game
-; (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) (emptyHandsStackMode (cardsSet (list 1 2 3) 5 5 randomFn)) randomFn)
+; Ejemplo 1: (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) (emptyHandsStackMode (cardsSet (list 1 2 3) 5 5 randomFn)) randomFn)
+; Ejemplo 2: (emptyHandsStackMode (cardsSet (list 1 2 3) 5 5 randomFn))
 (define emptyHandsStackMode
   (lambda(cardsSet)
     (reverse cardsSet)
-    (append (list(car (reverse cardsSet)) (randomFn 0 (length cardsSet)
-    )))))
-
-
+    (cons (car (reverse cardsSet)) (list(nthCard cardsSet (randomFn 0 (length cardsSet)))))))
+                                                   
 ; _______________________ MODO DE JUEGO PROPIO _______________________________
 
 
@@ -221,9 +211,8 @@
 ; Dominio: cardsSet
 ; Recorrido: cardsSet
 ; Ejemplo de Uso: uso interno de la función como parte del constructor game
-; (game 4 (cardsSet (list “A” “B” “C”)) reverseStackMode randomFn)
+; (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) reverseStackMode randomFn)
 (define reverseStackMode
   (lambda(cardsSet)
     (reverse cardsSet)
-    (append (list(car (cardsSet)) (list(cadr (cardsSet))
-    )))))
+    (append (list(car (cardsSet)) (list(cadr (cardsSet)))))))

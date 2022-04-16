@@ -3,6 +3,7 @@
 (provide dobble?) ; Se exporta la función de pertenencia cardsSet? al TDA game.
 (provide cardsSet) ; Se exporta la función cardsSet al TDA game.
 (provide randomFn) ; Se exporta la función random al TDA game.
+(provide nthCard) ; Se exporta la función que encuentra la n-ésima carta del cardsSet
 
 ; _______________________ PARÁMETROS _______________________________
 
@@ -32,7 +33,6 @@
        (cards (- numE 1))]
       [else null])
     ))
-
 
 ; Función que valida si los argumentos entregados corresponden a un TDA cardSet
 ; Dominio: elements x numE x maxC x randomFn
@@ -165,10 +165,8 @@
         (if (not(= i (+ 1 endValue)))
            (nnCards endValue (+ 1 i) (Encap-nnCard cards i 1 endValue))
             cards)))
-    (nnCards orderGame 1
-             (nCards orderGame 1
-                     (addCardToCards
-                      (reverse(fistCard tempCard 1 orderGame)) deck)))))
+    (nnCards orderGame 1(nCards orderGame 1(addCardToCards
+      (reverse(fistCard tempCard 1 orderGame)) deck)))))
 
 ; Función que permite determinar la cantidad de cartas en el set.
 ; Dominio: cardsSet
@@ -182,7 +180,7 @@
 ; desde 0 hasta (totalCartas-1).
 ; Dominio: cardsSet X integer
 ; Recorrido: card
-; Ejemplo de Uso: (nthCard  (cardsSet (list “A” “B” “C”) 7 -1 randomFn) 1)
+; Ejemplo de Uso: (nthCard  (cardsSet (list 1 2 3) 7 -1 randomFn) 1)
 ; Tipo de Recursión: Recursión de Cola.
 (define nthCard
   (lambda (cards nth)
@@ -218,7 +216,6 @@
              (display "The order must to be a prime number.")
              (cards (length(car cardsRecived))))))
 
-
 ; Función que evalua un número y ve si es primo o no.
 ; Dominio: integer
 ; Recorrido: boolean
@@ -235,5 +232,5 @@
 ; Recorrido: string
 ; Ejemplo de Uso: (cardsSet->string (cardsSet (list “A” “B” “C”)))
 (define cardsSet->string
-  (lambda(cards)
-    (display cards)))
+  (lambda(cardsSet)
+    (display cardsSet)))
