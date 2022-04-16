@@ -25,10 +25,10 @@
 ; (cardsSet (list (element “A”) (element “B”) (element “C”)) 2 -1 getRandom)
 
 (define cardsSet
-  (lambda (elements numE maxC createRandom)
+  (lambda (elements numE maxC randomFn)
     (cond
-      [(cardsSet? elements numE maxC createRandom) 
-       (list elements numE maxC createRandom)]
+      [(cardsSet? elements numE maxC randomFn) 
+       (cards numE )]
       [else null])
     )) ; null retorna una lista vacia, es lo mismo que '() o (list), luego si quieres preguntar si una lista es vacia, lo haces con null?
 
@@ -36,10 +36,10 @@
 ; Dominio: elements x numE x maxC x getRandom
 ; Recorrido: boolean
 (define cardsSet?
-  (lambda (elements numE maxC createRandom)
+  (lambda (elements numE maxC randomFn)
     (cond
       [(and (list? elements) (integer? numE) 
-            (integer? maxC) createRandom) 
+            (integer? maxC) randomFn) 
        #t]
       [else #f])))
 
@@ -87,7 +87,7 @@
 ; Dominio: Integer Integer
 ; Recorrido: Integer
 ; Ejemplo de Uso: randomFn(10 50) // Genera un número aleatoreo entre 10 y 50.
-(define createRandom
+(define randomFn
   (lambda(min max)
     (random min (+ 1 max))))
                  
@@ -123,10 +123,8 @@
 
 ; _______________________ FUNCIONALIDADES _______________________________
 
-
-
 ; Función que genera un mazo de tipo card
-; Dominio: getOrderGame
+; Dominio: orderGame (integer)
 ; Recorrido: cards
 (define cards
   (lambda(orderGame)
@@ -182,9 +180,9 @@
                                
 ; Función que obtiene la n-ésima (nth) carta desde el conjunto de cartas partiendo
 ; desde 0 hasta (totalCartas-1).
-; Dominio: cards X integer
+; Dominio: cardsSet X integer
 ; Recorrido: card
-; Ejemplo de Uso: (nthCard (cards 10) 3)
+; Ejemplo de Uso: (nthCard  (cardsSet (list "hola" "hola") 7 -1 randomFn) 1)
 (define nthCard
   (lambda (cards nth)
     (if (= nth 0)
@@ -200,25 +198,35 @@
   (lambda (card)
     (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
 
-
 ; Función que a partir de una carta de muestra, determina la cantidad total de elementos
 ; necesarios para poder construir un conjunto válido.
-; Dominio: card
+; Dominio: cardsSet
 ; Recorrido: integer
 ; Ejemplo de Uso: (requiredElements (nthCard (cardsSet (list “A” “B” “C”) 2 -1 randomFn) 1))
 (define requiredElements
   (lambda (card)
     (+(+(*(-(length card) 1)(-(length card) 1))(-(length card) 1)) 1)))
 
-
-
 ; A partir de un conjunto de cartas retorna el conjunto de cartas que hacen falta para que el set sea válido.
 ; Dominio: cardsSet
 ; Recorrido: cardsSet
 ; Ejemplo de Uso: (missingCards  (cardsSet (list “A” “B” “C”) 2 -1 randomFn) )
 (define missingCards
-  (lambda(cardsSet)
-    (null)))
+  (lambda(cardsRecived)
+    (if (prime? (length(car cardsRecived)))
+             (display "The order must to be a prime number.")
+             (cards (length(car cardsRecived))))))
+
+
+; Función que evalua un número y ve si es primo o no.
+; Dominio: integer
+; Recorrido: boolean
+(define (prime? lengthCard)
+  (define (encapPrime lengthCard temp)
+    (cond [(< lengthCard (* temp temp)) #t]
+          [(zero? (modulo lengthCard temp)) #f]
+          [else (encapPrime lengthCard (add1 temp))]))
+  (encapPrime lengthCard 2))
 
 ; Función que convierte un conjunto de cartas a una representación basada en strings que
 ; posteriormente pueda visualizarse a través de la función display.
@@ -226,5 +234,5 @@
 ; Recorrido: string
 ; Ejemplo de Uso: (cardsSet->string (cardsSet (list “A” “B” “C”)))
 (define cardsSet->string
-  (lambda(cardsSet)
-    (null)))
+  (lambda(cards)
+    (display cards)))
