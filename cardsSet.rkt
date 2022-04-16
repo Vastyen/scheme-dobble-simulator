@@ -232,5 +232,15 @@
 ; Recorrido: string
 ; Ejemplo de Uso: (cardsSet->string (cardsSet (list “A” “B” “C”)))
 (define cardsSet->string
+  (lambda(cards)
+    (displayln "--------------")
+    (displayln "Dobble Deck")
+    (displayln "--------------")
+    (stringsCards cards)))
+
+(define stringsCards
   (lambda(cardsSet)
-    (display cardsSet)))
+    (cond [(null? cardsSet)
+        (displayln "--------------")]
+    [else (displayln (car cardsSet))
+    (stringsCards (cdr cardsSet))])))

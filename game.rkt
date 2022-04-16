@@ -165,9 +165,21 @@
 ; Domino: game
 ; Recorrido: string
 ; Ejemplo de Uso: (game->string (game 4 (cardsSet (list 1 2 3) 5 5 randomFn) stackMode randomFn))
+
 (define game->string
   (lambda(game)
-    (display game)))
+    (displayln "--------------")
+    (displayln "Dobble Game")
+    (displayln "--------------")
+    (stringsGame game)))
+
+(define stringsGame
+  (lambda(game)
+    (cond [(null? game)
+        (displayln "--------------")]
+    [else (displayln (car game))
+    (stringsGame (cdr game))])))
+
 
 ; Función que permite agregar cartas a un set de manera manual procurando verificar que las cartas
 ; incorporadas no violan las restricciones de un set válido, aunque incompleto. Por tanto, no pueden ocurrir
