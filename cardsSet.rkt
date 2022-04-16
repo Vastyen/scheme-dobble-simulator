@@ -2,6 +2,7 @@
 
 (provide dobble?) ; Se exporta la función de pertenencia cardsSet? al TDA game.
 (provide cardsSet) ; Se exporta la función cardsSet al TDA game.
+(provide randomFn) ; Se exporta la función random al TDA game.
 
 ; _______________________ PARÁMETROS _______________________________
 
@@ -30,10 +31,11 @@
       [(dobble? elements numE maxC randomFn) 
        (cards (- numE 1))]
       [else null])
-    )) 
+    ))
+
 
 ; Función que valida si los argumentos entregados corresponden a un TDA cardSet
-; Dominio: elements x numE x maxC x getRandom
+; Dominio: elements x numE x maxC x randomFn
 ; Recorrido: boolean
 (define dobble?
   (lambda (elements numE maxC randomFn)
@@ -181,6 +183,7 @@
 ; Dominio: cardsSet X integer
 ; Recorrido: card
 ; Ejemplo de Uso: (nthCard  (cardsSet (list “A” “B” “C”) 7 -1 randomFn) 1)
+; Tipo de Recursión: Recursión de Cola.
 (define nthCard
   (lambda (cards nth)
     (if (= nth 0)
