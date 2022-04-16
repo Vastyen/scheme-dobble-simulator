@@ -1,6 +1,6 @@
 #lang racket
 
-(provide cardsSet?) ; Se exporta la función de pertenencia cardsSet? al TDA game.
+(provide dobble?) ; Se exporta la función de pertenencia cardsSet? al TDA game.
 
 ; _______________________ PARÁMETROS _______________________________
 
@@ -23,27 +23,24 @@
 ; Ejemplo de Uso: (cardsSet (list “A” “B” “C”) 2 -1 getRandom)
 ; lista de elementos a partir de TDA element definido por el usuario
 ; (cardsSet (list (element “A”) (element “B”) (element “C”)) 2 -1 getRandom)
-
 (define cardsSet
   (lambda (elements numE maxC randomFn)
     (cond
-      [(cardsSet? elements numE maxC randomFn) 
-       (cards numE )]
+      [(dobble? elements numE maxC randomFn) 
+       (cards (- numE 1))]
       [else null])
-    )) ; null retorna una lista vacia, es lo mismo que '() o (list), luego si quieres preguntar si una lista es vacia, lo haces con null?
+    )) 
 
 ; Función que valida si los argumentos entregados corresponden a un TDA cardSet
 ; Dominio: elements x numE x maxC x getRandom
 ; Recorrido: boolean
-(define cardsSet?
+(define dobble?
   (lambda (elements numE maxC randomFn)
     (cond
       [(and (list? elements) (integer? numE) 
             (integer? maxC) randomFn) 
        #t]
       [else #f])))
-
-
 
 ; _______________________ SELECTORES _______________________________
 
@@ -91,7 +88,7 @@
   (lambda(min max)
     (random min (+ 1 max))))
                  
-; _______________________ MUTUADORES _______________________________
+; _______________________ MODIFICADORES _______________________________
 
 ; Función que retorna una nueva lista con los elements modificados.
 ; Dominio: cardsSet X list
@@ -124,7 +121,7 @@
 ; _______________________ FUNCIONALIDADES _______________________________
 
 ; Función que genera un mazo de tipo card
-; Dominio: orderGame (integer)
+; Dominio: orderGame
 ; Recorrido: cards
 (define cards
   (lambda(orderGame)
