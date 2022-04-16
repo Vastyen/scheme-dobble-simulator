@@ -1,6 +1,7 @@
 #lang racket
 
 (provide dobble?) ; Se exporta la función de pertenencia cardsSet? al TDA game.
+(provide cardsSet) ; Se exporta la función cardsSet al TDA game.
 
 ; _______________________ PARÁMETROS _______________________________
 
