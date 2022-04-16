@@ -180,7 +180,7 @@
 ; desde 0 hasta (totalCartas-1).
 ; Dominio: cardsSet X integer
 ; Recorrido: card
-; Ejemplo de Uso: (nthCard  (cardsSet (list "hola" "hola") 7 -1 randomFn) 1)
+; Ejemplo de Uso: (nthCard  (cardsSet (list “A” “B” “C”) 7 -1 randomFn) 1)
 (define nthCard
   (lambda (cards nth)
     (if (= nth 0)
