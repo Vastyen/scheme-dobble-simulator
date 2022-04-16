@@ -19,11 +19,11 @@
 ; _______________________ CONSTRUCTOR _______________________________
 
 ; Función constructora de conjuntos válidos de cartas para el juego Dobble.
-; Dominio: Elements (list) X numE(int) X maxC(int) X getRandom (fn)
+; Dominio: Elements (list) X numE(int) X maxC(int) X randomFn (fn)
 ; Recorrido: cardsSet
-; Ejemplo de Uso: (cardsSet (list “A” “B” “C”) 2 -1 getRandom)
+; Ejemplo de Uso: (cardsSet (list “A” “B” “C”) 2 -1 randomFn)
 ; lista de elementos a partir de TDA element definido por el usuario
-; (cardsSet (list (element “A”) (element “B”) (element “C”)) 2 -1 getRandom)
+; (cardsSet (list (element “A”) (element “B”) (element “C”)) 2 -1 randomFn)
 (define cardsSet
   (lambda (elements numE maxC randomFn)
     (cond
