@@ -25,13 +25,13 @@
        (list numPlayers cardsSet mode createRandom)]
       [else null]))) ; null retorna una lista vacia, es lo mismo que '() o (list).
 
-; Función de Pertenenecia para game, valida que game sea precisamente, un game.
+; Función de pertenenecia para game, valida que game sea precisamente, un game.
 ; Dominio: game (game)
 ; Recorrido: boolean
 (define isGame?
   (lambda (numPlayers cardsSet mode createRandom)
     (cond
-      [(and (integer? numPlayers) (cardsSet? cardsSet) 
+      [(and (integer? numPlayers) (dobble? cardsSet) 
             mode createRandom)
        #t]
       [else #f])))
@@ -70,7 +70,7 @@
     (car (cdr (cdr (cdr game)
     )))))
 
-; _______________________ MUTUADORES _______________________________
+; _______________________ MODIFICADORES _______________________________
 
 
 ; Función mutuadora que entrega una nueva lista con el número de jugadores modificado.
@@ -81,7 +81,7 @@
      (list newNumPlayers (getCardsSet game) (getMode game) (getRandom game))
      ))
 
-; Función mutuadora que entrega una nueva lista con el cardsSet modificado.
+; Función modificadora que entrega una nueva lista con el cardsSet modificado.
 ; Dominio: game X newCardsSet
 ; Recorrido: game (list)
 (define setCardsSet
@@ -89,7 +89,7 @@
      (list (getNumPlayers game) newCardsSet (getMode game) (getRandom game))
      ))
 
-; Función mutuadora que entrega una nueva lista con el modo de juego modificado.
+; Función modificadora que entrega una nueva lista con el modo de juego modificado.
 ; Dominio: game X newMode
 ; Recorrido: game (list)
 (define setMode
@@ -97,7 +97,7 @@
      (list (getNumPlayers game) (getCardsSet game) newMode (getRandom game))
      ))
 
-; Función mutuadora que entrega una nueva lista con el número aleatoreo modificado.
+; Función modificadora que entrega una nueva lista con el número aleatoreo modificado.
 ; Dominio: game X newRandom
 ; Recorrido: game (list)
 (define setRandom
