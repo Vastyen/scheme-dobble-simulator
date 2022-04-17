@@ -21,7 +21,7 @@
   (lambda(numPlayers cardsSet mode randomFn)
     (cond
       [(isGame? numPlayers cardsSet mode randomFn) 
-       (list numPlayers cardsSet mode randomFn)]
+       (list cardsSet cardsSet '() 0 mode randomFn)]
       [else null]))) ; null retorna una lista vacia, es lo mismo que '() o (list).
 
 ; Función de pertenenecia para game, valida que game sea precisamente, un game.
@@ -35,68 +35,104 @@
       [else #f])))
 
 ; _______________________ SELECTORES _______________________________
+; Función selectora que obtiene la baraja inicial
+; Dominio: game (game)
+; Recorrido: integer
+(define getCardsSet
+  (lambda(game)
+    (car game)
+    ))
+
+; Función selectora que obtiene la baraja modificada
+; Dominio: game (game)
+; Recorrido: list
+(define getCardsLeft
+  (lambda(game)
+    (car (cdr game)
+    )))
+
+; Función selectora que obtiene la lista de jugadores
+; Dominio: game (game)
+; Recorrido: list
+(define getPlayers
+  (lambda(game)
+    (car (cdr (cdr game)
+    ))))
+
+
 ; Función selectora que obtiene el número de jugadores
 ; Dominio: game (game)
 ; Recorrido: integer
 (define getNumPlayers
   (lambda(game)
-    (car game)
-    ))
-
-; Función selectora que obtiene el cardsSet
-; Dominio: game (game)
-; Recorrido: list
-(define getCardsSet
-  (lambda(game)
-    (car (cdr game)
-    )))
-
-; Función selectora que obtiene el modo de juego
-; Dominio: game (game)
-; Recorrido: list
-(define getMode
-  (lambda(game)
-    (car (cdr (cdr game)
-    ))))
-
-; Función selectora que obtiene el número random
-; Dominio: game (game)
-; Recorrido: integer
-(define getRandom
-  (lambda(game)
     (car (cdr (cdr (cdr game)
     )))))
 
+; Función selectora que obtiene el modo de juego
+; Dominio: game (game)
+; Recorrido: mode
+(define getModeGame
+  (lambda(game)
+    (car (cdr (cdr (cdr (cdr game)
+    ))))))
+
+; Función selectora que obtiene un número aleatoreo
+; Dominio: game (game)
+; Recorrido: integer
+(define getRandomFn
+  (lambda(game)
+    (car (cdr (cdr (cdr (cdr (cdr game)
+    )))))))
 ; _______________________ MODIFICADORES _______________________________
 
 
-; Función mutuadora que entrega una nueva lista con el número de jugadores modificado.
-; Dominio: game X newNumPlayers
-; Recorrido: game (list)
-(define setNumPlayers
-  (lambda(game newNumPlayers)
-     (list newNumPlayers (getCardsSet game) (getMode game) (getRandom game))))
 
 ; Función modificadora que entrega una nueva lista con el cardsSet modificado.
 ; Dominio: game X newCardsSet
 ; Recorrido: game (list)
 (define setCardsSet
   (lambda(game newCardsSet)
-     (list (getNumPlayers game) newCardsSet (getMode game) (getRandom game))))
+     (list newCardsSet (getCardsLeft game) (getPlayers game)(getNumPlayers game)(getModeGame game) (getRandomFn game))
+    ))
+
+; Función modificadora que entrega una nueva lista con la baraja de juego modificada.
+; Dominio: game X newCardsSet
+; Recorrido: game (list)
+(define setCardsLeft
+    (lambda(game newCardsLeft)
+      (list (getCardsSet game) newCardsLeft (getPlayers game)(getNumPlayers game)(getModeGame game) (getRandomFn game))
+      ))
+
+
+; Función mutuadora que entrega una nueva lista con los nuevos jugadores modificados.
+; Dominio: game X newPlayers
+; Recorrido: game (list)
+(define setPlayers
+  (lambda(game newPlayers)
+     (list (getCardsSet game) (getCardsLeft game) newPlayers (getNumPlayers game) (getModeGame game) (getRandomFn game))
+    ))
+
+; Función mutuadora que entrega una nueva lista con el número de jugadores modificado.
+; Dominio: game X newNumPlayers
+; Recorrido: game (list)
+(define setNumPlayers
+  (lambda(game newNumPlayers)
+     (list (getCardsSet game) (getCardsLeft game) (getPlayers game)newNumPlayers (getModeGame game) (getRandomFn game))))
+
 
 ; Función modificadora que entrega una nueva lista con el modo de juego modificado.
 ; Dominio: game X newMode
 ; Recorrido: game (list)
 (define setMode
   (lambda(game newMode)
-     (list (getNumPlayers game) (getCardsSet game) newMode (getRandom game))))
+     (list (getCardsSet game) (getCardsLeft game) (getPlayers game)(getNumPlayers game) newMode (getRandomFn game))))
 
 ; Función modificadora que entrega una nueva lista con el número aleatoreo modificado.
 ; Dominio: game X newRandom
 ; Recorrido: game (list)
 (define setRandom
   (lambda(game newRandom)
-     (list (getNumPlayers game) (getCardsSet game) (getMode game) newRandom)))
+     (list (getCardsSet game) (getCardsLeft game) (getPlayers game)(getNumPlayers game)(getModeGame game) newRandom)))
 
 ; _______________________ FUNCIONALIDADES _______________________________
 
@@ -109,7 +145,9 @@
 (define stackMode
   (lambda(cardsSet)
     (reverse cardsSet)
-    (append (list(car (reverse cardsSet)) (list(cadr (reverse cardsSet)))))))
+    (append (list(car (reverse cardsSet)) (list(cadr (reverse cardsSet)))))
+    (setCardsLeft (append (list(car (reverse cardsSet)) (list(cadr (reverse cardsSet))))) game)
+    ))
 
 ; Función para registrar a un jugador en un juego. Los jugadores tienen un nombre único y no puede
 ; exceder la cantidad de jugadores registrados.
@@ -119,7 +157,9 @@
 (define register
   (lambda(user game)
     (cons user game)
-    ))
+    (setPlayers (user game))
+    (setNumPlayers (+ (getNumPlayers game) 1)
+    )))
 
 ; Función que retorna el usuario a quién le corresponde jugar en el turno.
 ; Dominio: game
