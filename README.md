@@ -20,19 +20,6 @@ Scheme es un lenguaje de programación funcional y un dialecto de Lisp. Fue desa
 ## Dobble
 Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuales tienen 8 símbolos diferentes. El objetivo del juego es ser el primero en anunciar el símbolo común entre dos tarjetas dadas.
 
-
-### Funcionalidades (en proceso)
-
-* Crear Cartas (cardsSet)
-
-
-## Tipos de Dato Abstracto
-
-### Constructor
-Dominio -> Elements (list) X numE(int) X maxC(int) X rndFn (fn)                                    
-Recorrido -> cardsSet
-
-
 ## Instalación
 
 ### Requerimientos
