@@ -303,8 +303,10 @@
   (define (encapPrime lengthCard temp)
     (cond [(< lengthCard (* temp temp)) #t]
           [(zero? (modulo lengthCard temp)) #f]
-          [else (encapPrime lengthCard (add1 temp))]))
-  (encapPrime lengthCard 2))
+          [else (encapPrime lengthCard (add1 temp))]
+          ))
+  (encapPrime lengthCard 2)
+  )
 
 ; Función que convierte un conjunto de cartas a una representación basada en strings que
 ; posteriormente pueda visualizarse a través de la función display.

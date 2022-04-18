@@ -18,7 +18,7 @@ La programación funcional es un paradigma de programación declarativa basado e
 Scheme es un lenguaje de programación funcional y un dialecto de Lisp. Fue desarrollado por Guy L. Steele y Gerald Jay Sussman en la década de los setenta e introducido en el mundo académico a través de una serie de artículos conocidos como los Lambda Papers de Sussman y Steele. La filosofía de Scheme es minimalista.
 
 ## Dobble
-Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuales tienen 8 símbolos diferentes. El objetivo del juego es ser el primero en anunciar el símbolo común entre dos tarjetas dadas.
+Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuales tienen 8 símbolos diferentes. El objetivo del juego es ser el primero en anunciar el símbolo común entre dos tarjetas dadas. Matemáticamente 57 cartas son las posibles, sin embargo se redujo el número a 55 con fines comerciales. 
 
 ## Instalación
 
