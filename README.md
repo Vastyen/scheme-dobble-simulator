@@ -28,20 +28,20 @@ Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuale
 
   ### Uso
 
-        Clonar el repositorio https://github.com/vastien/scheme/
+        Clonar el repositorio https://github.com/vastien/scheme_202020917_EscribanoGomez.rkt
         
         Windows
         
                 $ cd Desktop
                 $ mkdir functionalParadigm
                 $ cd functionalParadigm
-                $ git clone https://github.com/vastien/scheme/
+                $ git clone https://github.com/vastien/scheme_202020917_EscribanoGomez.rkt
                 
         Unix (Linux and MacOS) 
         
                 $ mkdir functionalParadigm
                 $ cd functionalParadigm
-                $ git clone hhttps://github.com/vastien/scheme/
+                $ git clone https://github.com/vastien/scheme_202020917_EscribanoGomez.rkt
 
         Abrir el archivo con extensión .rkt con Dr.Racket 
         
