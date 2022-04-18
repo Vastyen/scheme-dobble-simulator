@@ -48,41 +48,40 @@
 ; Recorrido: list
 (define getCardsLeft
   (lambda(game)
-    (car (cdr game)
-    )))
+    (car (cdr game))
+    ))
 
 ; Función selectora que obtiene la lista de jugadores
 ; Dominio: game (game)
 ; Recorrido: list
 (define getPlayers
   (lambda(game)
-    (car (cdr (cdr game)
-    ))))
-
+    (car (cdr (cdr game)))
+    ))
 
 ; Función selectora que obtiene el número de jugadores
 ; Dominio: game (game)
 ; Recorrido: integer
 (define getNumPlayers
   (lambda(game)
-    (car (cdr (cdr (cdr game)
-    )))))
+    (car (cdr (cdr (cdr game))))
+    ))
 
 ; Función selectora que obtiene el modo de juego
 ; Dominio: game (game)
 ; Recorrido: mode
 (define getModeGame
   (lambda(game)
-    (car (cdr (cdr (cdr (cdr game)
-    ))))))
+    (car (cdr (cdr (cdr (cdr game)))))
+    ))
 
 ; Función selectora que obtiene un número aleatoreo
 ; Dominio: game (game)
 ; Recorrido: integer
 (define getRandomFn
   (lambda(game)
-    (car (cdr (cdr (cdr (cdr (cdr game)
-    )))))))
+    (car (cdr (cdr (cdr (cdr (cdr game))))))
+    ))
 ; _______________________ MODIFICADORES _______________________________
 
 

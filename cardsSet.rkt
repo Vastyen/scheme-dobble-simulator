@@ -231,16 +231,21 @@
 ; Dominio: cardsSet
 ; Recorrido: string
 ; Ejemplo de Uso: (cardsSet->string (cardsSet (list “A” “B” “C”)))
-(define cardsSet->string
-  (lambda(cards)
-    (displayln "--------------")
-    (displayln "Dobble Deck")
-    (displayln "--------------")
-    (stringsCards cards)))
 
-(define stringsCards
-  (lambda(cardsSet)
-    (cond [(null? cardsSet)
-        (displayln "--------------")]
-    [else (displayln (car cardsSet))
-    (stringsCards (cdr cardsSet))])))
+;Ejemplo (cardsSet->string  (cards 3))
+
+(define cardsSet->string (lambda(cardsSet)
+                           (define cartaNumberString (lambda(carta)
+                                                       (map (lambda(y)
+                                                              (number->string y)) carta)))
+                           (define cartaString(lambda(carta)
+                                                (if (null? (cdr carta))
+                                                    (string-append (car carta) "\n")
+                                                    (string-append (car carta) "-" (cartaString (cdr carta)))
+                                                    )))
+ 
+                           (if (null? (cdr cardsSet))     
+                               (string-append (cartaString (cartaNumberString (car cardsSet))) " ")
+                               (string-append (cartaString (cartaNumberString (car cardsSet))) (cardsSet->string (cdr cardsSet))))))
+
+
