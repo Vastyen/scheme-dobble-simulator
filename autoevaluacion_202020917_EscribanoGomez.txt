@@ -1,0 +1,3 @@
+Requerimientos Funcionales            Evaluación
+___________________________     |    ____________
+TDAs                            |         1numCards          		|	  1nthCard 			|         1findTotalCards 			|	  1requiredElements 		|	  1missingCards 			|        0.5cardsSet->string 		|	  1stackMode 			|	  1register 			|	  1whoseTurnIsIt? 			|	 0.75play 				|        0.25status 				|	  1score				|	 0.5				  game->string 			|	 0.25addCard				|	 0.75emptyHandsStackMode		|	  1reverseStackMode		|	  1
