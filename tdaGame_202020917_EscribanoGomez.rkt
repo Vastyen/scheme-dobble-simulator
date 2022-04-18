@@ -281,7 +281,7 @@
   (lambda(game findUser)
     (map (lambda(x)
            (if (= x (findUser))
-               x ("No existe el usuario.")) (getPlayers game)))
+               x ("User not found.")) (getPlayers game)))
     ))
 
 ; Función que convierte un juego/partida a una representación basada en strings que posteriormente pueda
