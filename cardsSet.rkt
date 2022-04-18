@@ -332,6 +332,6 @@
             (string-append (car carta) "-" (cartaString (cdr carta))))
         ))
     (if (null? (cdr cardsSet))
-        (string-append "Carta " (number->string (numCards cardsSet)) ": "(cartaString (cartaNumberString (car cardsSet))) "------------------")
-        (string-append "Carta " (number->string (numCards cardsSet)) ": "(cartaString (cartaNumberString (car cardsSet))) (allStrings (cdr cardsSet))))
+        (string-append "Card " (number->string (numCards cardsSet)) ": "(cartaString (cartaNumberString (car cardsSet))) "------------------")
+        (string-append "Card " (number->string (numCards cardsSet)) ": "(cartaString (cartaNumberString (car cardsSet))) (allStrings (cdr cardsSet))))
     ))

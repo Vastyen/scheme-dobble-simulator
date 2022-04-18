@@ -32,6 +32,9 @@
 ; Dominio: game (game)
 ; Recorrido: boolean
 ; Tipo de recursión: No aplica.
+; Ejemplo de uso: (isGame? 934991 (cardsSet (list "1" "2" "3" "4" "5" "6" "7" "8") 8 57 randomFn) stackMode randomFn))
+; Ejemplo de uso: (isGame? 2334242 (cardsSet (list "1" "2" "3") 3 7 randomFn) reverseStackMode randomFn))
+; Ejemplo de uso: (isGame? 93424349 (cardsSet (list "1" "2" "3" "4" "5" "6" "7" "8") 8 57 randomFn) stackMode randomFn))
 (define isGame?
   (lambda (numPlayers cardsSet mode randomFn)
     (cond
@@ -111,6 +114,12 @@
 (define getRandomFn
   (lambda(game)
     (car (cdr (cdr (cdr (cdr (cdr game))))))
+    ))
+
+
+(define getLastPlayer
+  (lambda(game)
+    (car (reverse (getPlayers game)))
     ))
 ; _______________________ MODIFICADORES _______________________________
 
@@ -224,7 +233,8 @@
 ; Ejemplo de uso: (whoseTurnIsIt? (game 2 (cardsSet (list "1" "2" "3" "4" "5" "6" "7" "8") 8 57 randomFn) stackMode randomFn))
 (define whoseTurnIsIt?
   (lambda(game)
-    (getPlayers game)))
+    (list (getLastPlayer game) getModeGame)
+    ))
 
 ; Función que permite realizar una jugada a partir de la acción especificadas por la función currificada action.
 ; Las jugadas parten sin una acción especificada, lo que activa internamente el uso de la función stackMode para
@@ -239,8 +249,8 @@
 ; (play mGame finish randomFn)
 (define play
   (lambda(game action)
-    ( cons (setCardsLeft game) action
-    )))
+    (cons (setCardsLeft game) action)
+    ))
 
 ; Función que retorna el estado actual del juego
 ; Dominio: game
