@@ -106,18 +106,7 @@
   (lambda(cardsSet)
     (- (getNumE cardsSet) 1)
     ))
-
-; Función random para la selección aleatoria de elementos desde un conjunto, asignación
-; aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
-; Dominio: integer X integer
-; Recorrido: integer
-; Tipo de recursión: No aplica.
-; Ejemplo de Uso: randomFn(10 50) // Genera un número aleatoreo entre 10 y 50.
-(define randomFn
-  (lambda(min max)
-    (random min (+ 1 max))
-    ))
-                 
+ 
 ; _______________________ MODIFICADORES _______________________________
 
 ; Función que retorna una nueva lista con los elements modificados.
@@ -225,6 +214,17 @@
       (reverse(fistCard tempCard 1 orderGame)) deck)))
     ))
 
+; Función random para la selección aleatoria de elementos desde un conjunto, asignación
+; aleatoria de cartas a jugadores, ordenamiento aleatorio de cartas en la pila, etc.
+; Dominio: integer X integer
+; Recorrido: integer
+; Tipo de recursión: No aplica.
+; Ejemplo de Uso: randomFn(10 50) // Genera un número aleatoreo entre 10 y 50.
+(define randomFn
+  (lambda(min max)
+    (random min (+ 1 max))
+    ))
+
 ; Función que permite determinar la cantidad de cartas en el set.
 ; Dominio: cardsSet
 ; Recorrido: integer
@@ -234,9 +234,9 @@
 ; Ejemplo de uso: (numCards (cardsSet (list "1" "2" "3" "4" "5" "6" "7" "8") 8 57 randomFn))
 (define numCards
   (lambda(cardsSet)
-    (length cardsSet))
-    )
-                               
+    (length cardsSet)
+    ))
+
 ; Función que obtiene la n-ésima (nth) carta desde el conjunto de cartas partiendo
 ; desde 0 hasta (totalCartas-1).
 ; Dominio: cardsSet X integer
