@@ -171,7 +171,7 @@
 ; _______________________ FUNCIONALIDADES _______________________________
 
 ; Función que genera un mazo de tipo card
-; Dominio: orderGame (integer)
+; Dominio: integer
 ; Recorrido: cards
 ; Tipo de recursión: Cola
 ; Ejemplo de uso: (cards 3)
