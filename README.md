@@ -6,8 +6,8 @@ Departamento de Ingeniería Informática
 Paradigma: Funcional           
 Fecha de Entrega: 18 de abril de 2022                     
 Lenguaje de Programación: Scheme               
-Desarrollador: Bastián Escribano - @vastien              
-
+Desarrollador: Bastián Escribano - @vastien      
+Calificación: 5.0
 
 ## Introducción 
 En 1933 Kurt Gödel definió la recursión matemática como la forma de resolver una función llamándose (o utilizándose a sí misma). Más tarde en 1936, Alonzo Crurch se preguntó como resolver funciones con funciones, lo nombró Cálculo Lambda. Es así como nace la programación funcional.
