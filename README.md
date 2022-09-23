@@ -45,7 +45,7 @@ To represent the real game of Dobble, each line must join 8 points. This results
 
 
 <p align="center">
-<img width="200" src="https://e7.pngegg.com/pngimages/633/532/png-clipart-fano-plane-point-matroid-block-design-structure-diagram-angle-triangle.png" alt="Fano plane">
+<img width="200" src="https://i.ibb.co/7Ggjdjj/Fplane.png" alt="Fano plane">
 </p>
 
 
