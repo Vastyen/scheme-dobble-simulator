@@ -10,7 +10,7 @@ April, 2022.
 
 _________________________________________________________________
 
-Others Languages
+Other Languages
 
 * [Spanish](https://github.com/vastien/scheme-dobble-simulator/READMEes.md)
 
