@@ -1,5 +1,11 @@
 # Functional Paradigm with Scheme
-## Dobble con Scheme
+## Dobble with Scheme
+
+_____________________________________________________________________________________
+
+(Spanish Language)[https://github.com/vastien/scheme-dobble-simulator/edit/main/READMEes.md]
+
+_________________________________________________________________
                   
 Functional Paradigm                         
 Programming Language: Scheme                              
