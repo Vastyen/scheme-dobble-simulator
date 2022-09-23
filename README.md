@@ -1,19 +1,21 @@
 # Functional Paradigm with Scheme
 ## Dobble Simulator with Scheme
 
-Others Languages
-
-* [Spanish](https://github.com/vastien/scheme-dobble-simulator/READMEes.md)
-
-_________________________________________________________________
-                  
 Functional Paradigm                         
 Programming Language: Scheme                              
 Developer: Bastián Escribano - @vastien                      
 University of Santiago of Chile                        
 Computer Science Department                
-April, 2022.                  
-                
+April, 2022.      
+
+_________________________________________________________________
+
+Others Languages
+
+* [Spanish](https://github.com/vastien/scheme-dobble-simulator/READMEes.md)
+
+_________________________________________________________________
+                    
 ## Introduction
 In computer science, functional programming is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that map values to other values, rather than a sequence of imperative statements which update the running state of the program.        
                         
