@@ -53,7 +53,7 @@ To represent the real game of Dobble, each line must join 8 points. This results
 ## Install
 
 ### Requirements
-* [Dr.Racket 6.11 o superior](https://download.racket-lang.org/)         
+* [Dr.Racket 6.11 or higher](https://download.racket-lang.org/)         
 * [Git](https://git-scm.com/downloads)
 
   ### Use
