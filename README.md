@@ -1,9 +1,9 @@
 # Functional Paradigm with Scheme
 ## Dobble Simulator with Scheme
 
-_____________________________________________________________________________________
+Others Languages
 
-[Spanish Language](https://github.com/vastien/scheme-dobble-simulator/edit/main/READMEes.md)
+* [Spanish](https://github.com/vastien/scheme-dobble-simulator/edit/main/READMEes.md)
 
 _________________________________________________________________
                   
