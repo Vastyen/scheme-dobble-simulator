@@ -3,7 +3,7 @@
 
 Others Languages
 
-* [Spanish](https://github.com/vastien/scheme-dobble-simulator/edit/main/READMEes.md)
+* [Spanish](https://github.com/vastien/scheme-dobble-simulator/READMEes.md)
 
 _________________________________________________________________
                   
