@@ -1,8 +1,9 @@
-# Paradigma Funcional con Scheme 
+# Functional Paradigm with Scheme
 ## Dobble con Scheme
 
+
 University of Santiago of Chile
-Computer Science Departament
+Computer Science Department
 April, 2022.
 
 Functional Paradigmn
@@ -42,11 +43,41 @@ In general, a finite projective plane with n points on each line has n2-n+1 poin
 
 To represent the real game of Dobble, each line must join 8 points. This results in a structure with 57 lines and 57 points (82-8+1=57), corresponding to 57 cards and 57 symbols. However, the game works fine with fewer cards too, and Dobble is marketed with 55 cards in the deck (but 57 different symbols). A junior version of Dobble is marketed with 6 symbols per card, 30 cards, and 31 different symbols (62-6+1=31).
 
-
-
 <p align="center">
 <img width="400" src="https://i.postimg.cc/qvbwfjTm/Fplane.png" alt="Fano plane">
 </p>
+
+
+## Install
+
+### Requirements
+* [Dr.Racket 6.11 o superior](https://download.racket-lang.org/)         
+* [Git](https://git-scm.com/downloads)
+
+  ### Use
+
+        Clone https://github.com/vastien/scheme-dobble-simulator/
+        
+        Windows
+        
+                $ cd Desktop
+                $ mkdir functionalParadigm
+                $ cd functionalParadigm
+                $ git clone https://github.com/vastien/scheme-dobble-simulator/
+                
+        Unix (Linux and MacOS) 
+        
+                $ mkdir functionalParadigm
+                $ cd functionalParadigm
+                $ git clone https://github.com/vastien/scheme-dobble-simulator/
+
+        Open the .rkt file with Dr.Racke. Then execute.
+        
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+__________________________________________________________________________________________________________________________________________________________
 
 
 ## Introducción 
@@ -67,20 +98,20 @@ Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuale
 
   ### Uso
 
-        Clonar el repositorio https://github.com/vastien/scheme_202020917_EscribanoGomez.rkt
+        Clonar el repositorio https://github.com/vastien/scheme-dobble-simulator/
         
         Windows
         
                 $ cd Desktop
                 $ mkdir functionalParadigm
                 $ cd functionalParadigm
-                $ git clone https://github.com/vastien/scheme_202020917_EscribanoGomez.rkt
+                $ git clone https://github.com/vastien/scheme-dobble-simulator/
                 
         Unix (Linux and MacOS) 
         
                 $ mkdir functionalParadigm
                 $ cd functionalParadigm
-                $ git clone https://github.com/vastien/scheme_202020917_EscribanoGomez.rkt
+                $ git clone https://github.com/vastien/scheme-dobble-simulator/
 
         Abrir el archivo con extensión .rkt con Dr.Racket 
         
