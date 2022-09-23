@@ -1,5 +1,5 @@
 # Functional Paradigm with Scheme
-## Dobble with Scheme
+## Dobble Simulator with Scheme
 
 _____________________________________________________________________________________
 
